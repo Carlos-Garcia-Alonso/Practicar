@@ -24,11 +24,11 @@ jobs:
         with:
           context: .
           push: true
-          tags: ${{ vars.DOCKERHUB_USERNAME }}/prueba:latest
+          tags: ${{ vars.DOCKERHUB_USERNAME }}/practicar:latest
       - name: Levantar contenedor
         run: |
-          docker rm -f prueba
+          docker rm -f practicar
           if ($LASTEXITCODE -ne 0) { 
               Write-Host "Contenedor no existía, continuamos..." 
           }
-          docker run -d --name prueba -p 8888:80 ${{ vars.DOCKERHUB_USERNAME }}/Prueba:latest
+          docker run -d --name practicar -p 8888:80 ${{ vars.DOCKERHUB_USERNAME }}/practicar:latest
